@@ -29,7 +29,7 @@ Basically the same as [ART execution context case][art] (Japanse document).
 First, modify *.Comp.cpp file and rebuild your RT component.  
 Please add line
 
-    manager->load("ArtExecutionContext.so", "ArtExecutionContextInit");
+    manager->load("RealtimePeriodicExecutionContext.so", "RealtimePeriodicExecutionContextInit");
 
 before setting module init procedure code `setModuleInitProc(MyModuleInit)`.
 
