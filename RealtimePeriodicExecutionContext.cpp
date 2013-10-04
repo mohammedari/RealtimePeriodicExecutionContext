@@ -4,6 +4,7 @@
 #include <errno.h>
 #include <pthread.h>
 #include "CoilMutexLock.h"
+#include "MemoryLock.h"
 
 namespace RTC
 {
@@ -21,6 +22,13 @@ namespace RTC
         message.append(" : NO PERMISSION");
 
       RTC_ERROR_STR(message);
+      return 1;
+    }
+
+    MemoryLock ml;
+    if (!ml.IsSucceeded())
+    {
+      RTC_ERROR_STR(ml.GetMessage());
       return 1;
     }
 
