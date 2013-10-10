@@ -26,6 +26,13 @@ namespace RTC
       }
     }
 
+    void prefaultStack()
+    {
+      unsigned char dummy[_prefaultStackSize];
+      memset(dummy, 0, _prefaultStackSize);
+      return;
+    }
+
   public:
     RealtimePeriodicExecutionContext()
         : PeriodicExecutionContext()

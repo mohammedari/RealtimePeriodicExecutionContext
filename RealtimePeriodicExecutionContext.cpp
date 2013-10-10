@@ -32,6 +32,8 @@ namespace RTC
       return 1;
     }
 
+    prefaultStack();
+
     RTC_TRACE(("thread is set to realtime priority"));
 
     do
