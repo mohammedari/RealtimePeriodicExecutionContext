@@ -3,7 +3,6 @@
 
 #include <errno.h>
 #include <pthread.h>
-#include "CoilMutexLock.h"
 #include "MemoryLock.h"
 
 namespace RTC
@@ -41,7 +40,7 @@ namespace RTC
       struct timespec t;
       clock_gettime(CLOCK_MONOTONIC, &t);
       {
-        CoilMutexLock(m_worker.mutex_);
+        coil::Guard<coil::Mutex>(m_worker.mutex_);
         while (!m_worker.running_)
         {
           m_worker.cond_.wait();
